@@ -7,9 +7,9 @@
         values_url: '',
 
         templates: {
-            pill: '<span class="badge badge-info tag-badge">{0}</span>',
-            add_pill: '<span class="badge badge-success tag-badge">...</span>',
-            input_pill: '<span class="badge badge-success tag-badge"></span>',
+            pill: '<span class="badge bg-info tag-badge">{0}</span>',
+            add_pill: '<span class="badge bg-success tag-badge">...</span>',
+            input_pill: '<span class="badge bg-success tag-badge"></span>',
             number: ' <sup><small>{0}</small></sup>',
             plus_icon: '<i class="icon-plus-sign tag-icon"></i>',
             delete_icon: '<i class="icon-remove-sign tag-icon" data-toggle="tooltip" title="Delete"></i>',
@@ -295,7 +295,7 @@
     Tags.prototype.removeTag = function(tag) {
         var $self = this;
         var $tag = $(tag).closest('[data-tag-id]');
-        
+
         if($self.options.onBeforeRemove($tag) === false) {
             return;
         }
