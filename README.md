@@ -363,6 +363,11 @@ There are 3 methods to load suggestions to typeahead dropdown.
 
 ## Changelog
 
+#### 0.0.3 - Beta
+
+- update Bootstrap to v3.1.1
+- remove components directory
+
 #### 0.0.2 - beta
 
 - better documentation
