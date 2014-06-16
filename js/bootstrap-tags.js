@@ -11,9 +11,9 @@
             add_pill: '<span class="badge bg-success tag-badge">...</span>',
             input_pill: '<span class="badge bg-success tag-badge"></span>',
             number: ' <sup><small>{0}</small></sup>',
-            plus_icon: '<i class="icon-plus-sign tag-icon"></i>',
-            delete_icon: '<i class="icon-remove-sign tag-icon" data-toggle="tooltip" title="Delete"></i>',
-            ok_icon: '<i class="icon-ok-sign tag-icon"></i>'
+            plus_icon: '<i class="glyphicon glyphicon-plus-sign tag-icon"></i>',
+            delete_icon: '<i class="glyphicon glyphicon-remove-sign tag-icon" data-toggle="tooltip" title="Delete"></i>',
+            ok_icon: '<i class="glyphicon glyphicon-ok-sign tag-icon"></i>'
         },
 
         limit: 0,
