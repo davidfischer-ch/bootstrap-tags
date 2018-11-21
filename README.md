@@ -32,8 +32,6 @@ Please see [demo](http://bootstrap-tags.azurewebsites.net/) here. Demo is update
 - Chose tags only from suggestions or create new values
 - Set who can delete or create tags
 
-
-
 ## Install
 
 You can install with bower
@@ -125,7 +123,7 @@ text     | Yes      | Used as tag text.
 suggest  | No       | If not set `text` will be used. This property is used to display in typeahead suggestions.
 num      | No       | If set, number will be shown after the text.
 url      | No       | If set, text will be as link. Not that there is `tag_link_target` option. Eg. `$('#bs-tags').tags({tag_link_target:"_blank"});`
-title    | No       | Title will create Bootstrap tooltip. It will be used only if `url` property exists. 
+title    | No       | Title will create Bootstrap tooltip. It will be used only if `url` property exists.
 
 ## Options
 
@@ -146,11 +144,11 @@ only_suggestions | false | You can allow only add from suggestions and not add n
 suggestion_limit | 15 | Maximum number of suggestions for typeahead.
 suggestion_url | | Url to fetch suggestion. `POST` request will be send with `q` and `limit` parameters. `q` - search string and `limit` - how many suggestions maximum.
 suggestions | [] | Array of suggestion.
-templates | Object | Set HTML markup. This let you fully manage and style output as you want. No limitations. See [Templates](#templates) for more details. 
+templates | Object | Set HTML markup. This let you fully manage and style output as you want. No limitations. See [Templates](#templates) for more details.
 
 ## Templates
 
-Templates option allow you fully manage how tags/pills will look like. Then with additions of few CSS styles you may create very beautiful outputs. See demo for examples. 
+Templates option allow you fully manage how tags/pills will look like. Then with additions of few CSS styles you may create very beautiful outputs. See demo for examples.
 
 You can path template through `templates` option.
 
@@ -161,21 +159,21 @@ You can path template through `templates` option.
             number: ' <sup><small>{0}</small></sup>'
 		}
 	});
-	
+
 Template | Default | Description
 ---|---|---
 pill | `<span class="badge badge-info">{0}</span>` | This is main HTML element of the pill. This is also what will be passed to `onRemove(pill)` method. After full pill creation it will include also hidden `<input>`, number if passed and remove icon. `{0}` is the tag text.
 add_pill | `<span class="badge badge-success tag-badge">...</span>` | Main wrapper for pill with button to show input
 input_pill | `<span class="badge badge-success tag-badge"></span>` | Main wrapper for typeahead input
 number |  `<sup><small>{0}</small></sup>` | If `num` property exists in [feed](#feed-format) then number will be added. This is template how to format it.
-delete_icon | `<i class="icon-remove-sign"></i>` | This is delete icon. If you use FontAwesome or IcoMoon you can change it to display better icon. 
+delete_icon | `<i class="icon-remove-sign"></i>` | This is delete icon. If you use FontAwesome or IcoMoon you can change it to display better icon.
 plus_icon | `<i class="icon-plus-sign tag-icon"></i>` | Icon to show tag input
 ok_icon | `<i class="icon-ok-sign tag-icon"></i>` | Icon to confirm entered tag
 
 Final pill may look like this.
 
 	<span class="badge badge-info" data-tag-id="2">
-		<a class="tag-link" target="" href="http://tags/">Apple</a> 
+		<a class="tag-link" target="" href="http://tags/">Apple</a>
 		<sup><small>5</small></sup>
 		<a href="javascript:void(0)" class="tag-remove" data-toggle="tooltip" title="Delete">
 			<i class="icon-remove-sign"></i>
@@ -190,9 +188,10 @@ Final pill may look like this.
 With extended events API you can affect almost anything.
 
 -------------------------------------------------------
+
 ### onLoadDefaults(values)
 
-This method is triggered right before fetch tags pills and after `values_url` has been fetched. What you return will be used to pre-populate component with tags/pills. 
+This method is triggered right before fetch tags pills and after `values_url` has been fetched. What you return will be used to pre-populate component with tags/pills.
 
 - `values` - List of items already populated with `values` and `values_url` [options](#options). Thus you basically have to merge values if you want to add some values.
 
@@ -205,11 +204,12 @@ This method is triggered right before fetch tags pills and after `values_url` ha
 	});
 
 ------------------------------------------------------
+
 ### onRemove(pill)
 
-Triggered before removing HTML element of tag/pill. 
+Triggered before removing HTML element of tag/pill.
 
-- `pill` - HTML element. headsup: every HTML element has `data-tag-id` attribute populated from `item.id` of the [tags feed](#feed-format) element. 
+- `pill` - HTML element. headsup: every HTML element has `data-tag-id` attribute populated from `item.id` of the [tags feed](#feed-format) element.
 
 **Example**
 
@@ -221,9 +221,10 @@ Triggered before removing HTML element of tag/pill.
 	});
 
 ------------------------------------------------------
+
 ### onError(num, msg)
 
-This alerts error message by default. But if you have your own error management system you can use this callback. 
+This alerts error message by default. But if you have your own error management system you can use this callback.
 
 - `num` - error number.
 - `msg` - error text.
@@ -236,7 +237,7 @@ Error | Text
 <hr>
 ### onBeforeAdd(pill, item)
 
-This event is triggered before HTML element appended to pills list. This method has to return `pill`. 
+This event is triggered before HTML element appended to pills list. This method has to return `pill`.
 
 - `pill` -  an HTML element ready to be appended to list.
 - `item` - tag object with all properties like `is`, `text`, `suggest`, `url`, ...  It will also contain all other custom properties you add to _[feed](#feed-format)_.
@@ -274,7 +275,7 @@ This event is triggered as a duplicate tag is being added. This method can retur
 
 This event is triggered before a tag is removed. The function for this event should return true or false. If the function returns true then the tag is removed, however, if the function returns false then the tag will not be removed. If there is a removal request to the server, it will happen after this function returns true. By default, the tag is removed, but this event can be useful if you want to make certain tags unremovable. One parameter is passed to the callback:
 
-- `pill` - HTML element. headsup: every HTML element has `data-tag-id` attribute populated from `item.id` of the [tags feed](#feed-format) element. 
+- `pill` - HTML element. headsup: every HTML element has `data-tag-id` attribute populated from `item.id` of the [tags feed](#feed-format) element.
 
 **Example**
 
@@ -291,6 +292,7 @@ This event is triggered before a tag is removed. The function for this event sho
 -----------------------------------------------------
 
 ## Examples
+
 ### Load default values
 
 There are 3 methods to load default values or pre-populate tags/pills. Methods are listed in order of execution.
@@ -358,21 +360,29 @@ There are 3 methods to load suggestions to typeahead dropdown.
 
 ## Roadmap
 
-- do not show in suggestion elements that are already added
-- themable interface. jQuery UI theme.
+- Do not show in suggestion elements that are already added.
+- Them-able interface. jQuery UI theme.
 
 ## Changelog
 
+#### 0.0.4 - Beta
+
+- Fix typeahead.
+- Remove minified version.
+- Update Bootstrap to v3.3.7.
+- Update jQuery to v3.2.1.
+
 #### 0.0.3 - Beta
 
-- update Bootstrap to v3.1.1
-- remove components directory
+- Update Bootstrap to v3.1.1.
+- Remove components directory.
 
 #### 0.0.2 - beta
 
-- better documentation
-- added - `add_pill` and `input_pill` templates
-- `bootstrap-tags.css` depreciated. There are no general CSS styles that would apply to all styles. It make sense to apply style only to currently used style. Just copy/paste CESS from example.
+- Better documentation
+- Add - `add_pill` and `input_pill` templates
+- Deprecate `bootstrap-tags.css`. There are no general CSS styles that would apply to all styles. It make sense to apply style only to currently used style. Just copy/paste CESS from example.
 
 #### 0.0.1 - beta
-Initial release
+
+Initial release.

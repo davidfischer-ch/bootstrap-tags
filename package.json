@@ -1,6 +1,6 @@
 {
     "name": "bootstrap-tags",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "description": "Bootstrap styled tag pills",
     "main": "index.js",
     "scripts": {
@@ -16,7 +16,7 @@
         "tags",
         "typeahead"
     ],
-    "author": "Sergey Romanov",
+    "author": "David Fischer & Sergey Romanov",
     "license": "CC",
     "devDependencies": {
         "grunt": "~0.4.1",

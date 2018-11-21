@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-tags-pills",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./js/bootstrap-tags.js",
   "ignore": [
     "**/.*",
@@ -8,8 +8,8 @@
     "components"
   ],
   "dependencies": {
-    "bootstrap": "~3.1.1",
-    "jquery": "~2.0.0",
+    "bootstrap": "~3.3.7",
+    "jquery": "~3.2.1",
     "jquery-color": "~2.1.2"
   }
 }

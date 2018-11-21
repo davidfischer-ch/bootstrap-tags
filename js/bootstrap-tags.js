@@ -43,18 +43,24 @@
         onLoadDefaults: function(values) {
             return values;
         },
+
         onRemove: function(pill) {
         },
+
         onError: function(num, msg) {
             alert(msg);
         },
+
         onBeforeAdd: function(pill, value) {
             return pill;
         },
+
         onLoadSuggestions: function(values) {
             return values;
         },
+
         onDuplicate: null,
+
         onBeforeRemove: function(pill) {
             return true;
         }
@@ -95,16 +101,22 @@
                 .css('outline', 'none')
                 .typeahead({
                     items: $self.options.suggestion_limit,
-                    source: function(query, process) {
-
+                    limit: $self.options.suggestion_limit,
+                    source: function(query, syncResults) {
                         var suggestions = $.merge([], $self.options.suggestions);
                         labels = [];
                         mapped = {};
 
                         if($self.options.suggestion_url) {
                             $.ajax({
-                                dataType: 'json', type: 'post', async: false, url: $self.options.suggestion_url,
-                                data: {q: query, limit: $self.options.suggestion_limit}
+                                dataType: 'json',
+                                type: 'post',
+                                async: false,
+                                url: $self.options.suggestion_url,
+                                data: {
+                                    q: query,
+                                    limit: $self.options.suggestion_limit
+                                }
                             }).done(function(json) {
                                     if(typeof json == "object") {
                                         suggestions = $.merge(suggestions, json);
@@ -120,7 +132,8 @@
                             labels.push(item.suggest)
                         });
 
-                        return labels;
+                        syncResults(labels);
+                        return labels
                     },
                     updater: function(item) {
                         $self._addTag(pills_list, input, mapped[item]);
@@ -139,8 +152,6 @@
                     }
                 });
             }
-
-
 
             var add = $($self.options.templates.input_pill)
                 .append(input)
@@ -181,7 +192,6 @@
         }
     }
 
-
     Tags.prototype._prepare = function(values) {
 
         $.each(values, function(key, value) {
@@ -199,6 +209,7 @@
         });
         return values;
     }
+
     Tags.prototype._addTag = function(pills_list, input, value) {
 
         if(!value) {
@@ -209,6 +220,7 @@
             input.val('').focus();
         }
     }
+
     Tags.prototype.addTag = function(pills_list, value) {
         var $self = this;
 
